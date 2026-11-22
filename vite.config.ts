@@ -5,6 +5,8 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Deployed in a subfolder (e.g. /steadfast/); set VITE_BASE at build time. Defaults to root for local dev.
+  base: process.env.VITE_BASE ?? '/',
   plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
