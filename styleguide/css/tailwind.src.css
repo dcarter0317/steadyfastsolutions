@@ -1,0 +1,9 @@
+/* Standalone build entry for `npm run css:build` / `css:watch`. Mirrors src/index.css. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import './tokens.css';
+@import './theme.css';
+@import './base.css';
+@import './components.css';
+@import './layout.css';

@@ -1,0 +1,39 @@
+/*
+ * Theme — raw palette + font families, registered as Tailwind theme variables.
+ * `static` keeps every variable in the output so the styleguide can read them.
+ * Semantic aliases (surface, text, accent…) live in tokens.css.
+ */
+@theme static {
+  /* Ink — the dark neutrals the whole site sits on */
+  --color-ink-950: #07090c;
+  --color-ink-900: #0d1115;
+  --color-ink-800: #14191e;
+  --color-ink-700: #1c2228;
+  --color-ink-600: #2a323a;
+  --color-ink-500: #3b4550;
+  --color-ink-300: #8f9aa6;
+  --color-ink-100: #d9dee3;
+
+  /* Copper & sand — brand metal, used for accents and warm surfaces */
+  --color-copper-200: #efcba3;
+  --color-copper-300: #dfae7e;
+  --color-copper-400: #c68d5b;
+  --color-copper-500: #9f6a3c;
+  --color-sand-300: #e2b98d;
+
+  /* Navy — text on sand and copper */
+  --color-navy-900: #1a2740;
+  --color-navy-700: #2f4263;
+
+  /* Flame — the one call-to-action colour (also: electrical lines) */
+  --color-flame-500: #e8803a;
+  --color-flame-600: #cf6a27;
+
+  /* Water — plumbing lines, footer headings, focus ring */
+  --color-water-400: #6cb2e8;
+  --color-water-500: #4a95d1;
+
+  /* Type */
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
