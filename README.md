@@ -311,3 +311,14 @@ npm run preview   # sanity-check the build locally
 - **Document in the styleguide.** A new or changed component should have a specimen entry.
 - **Container queries, not media queries,** for layout responsiveness, so the styleguide viewport frames stay accurate.
 - **Icons** are Font Awesome class names (for example `fa-fan`, `fa-bolt`, `fa-faucet-drip`), passed through the `Icon` component.
+
+## SEO, GEO and AEO
+
+`npm run build` runs [scripts/prerender.mjs](scripts/prerender.mjs) after Vite. It renders the page to static HTML (so crawlers and AI bots that skip JavaScript still see all content), then the browser hydrates it.
+
+- **Set `SITE_URL`** (for example `SITE_URL=https://www.yourdomain.com npm run build`). Without it the build skips canonical, `og:url`, `og:image`, the sitemap, `llms.txt` and the JSON-LD graph, because those need absolute URLs.
+- **Output in `dist/`:** `robots.txt` (allows search and AI crawlers, blocks `/styleguide/`), `sitemap.xml`, `llms.txt`, and JSON-LD (`GeneralContractor`/`HVACBusiness`/`Electrician`/`Plumber`, `WebSite`, `WebPage`, `FAQPage`).
+- **Placeholders are never published as facts.** `[BRACKETED]` values in [src/data/site.ts](src/data/site.ts) are left out of structured data and `llms.txt`. Once you set a real phone (`tel:+1…`), email, service area and hours, they appear automatically.
+- **Answer content:** the About and FAQ sections (`about` and `faqs` in `site.ts`) are plain, direct statements that search and answer engines can quote. The FAQ items are native `<details>`, so they work without JavaScript.
+- **Title and description** live in `index.html` and `seo` in `site.ts`. Keep them in sync.
+- **Still to do:** a Google Business Profile, a real phone and address for local SEO, and a custom `og-image.jpg` (currently the hero photo).

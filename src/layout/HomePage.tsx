@@ -1,3 +1,5 @@
+import { AboutSection } from './AboutSection'
+import { FaqSection } from './FaqSection'
 import type { HeroProps } from './Hero'
 import { Hero } from './Hero'
 import { Layout } from './Layout'
@@ -17,6 +19,8 @@ export function HomePage({ hero }: HomePageProps) {
       <ServicesSection />
       <ProcessSection />
       <WorkSection />
+      <AboutSection />
+      <FaqSection />
       <QuoteSection />
       <QuoteForm />
     </Layout>

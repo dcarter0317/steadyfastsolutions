@@ -1,3 +1,7 @@
+export { AboutSection } from './AboutSection'
+export type { AboutSectionProps } from './AboutSection'
+export { FaqSection } from './FaqSection'
+export type { FaqSectionProps } from './FaqSection'
 export { Container } from './Container'
 export type { ContainerProps } from './Container'
 export { Footer } from './Footer'
