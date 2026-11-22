@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Served at https://dcartdevelopment.com/steadfast/
-  DEPLOY_SUBFOLDER: steadfast
+  # Served at https://dcartdevelopment.com/steadyfastsolutions/
+  DEPLOY_SUBFOLDER: steadyfastsolutions
 
 jobs:
   deploy:
