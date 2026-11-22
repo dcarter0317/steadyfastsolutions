@@ -32,10 +32,20 @@ jobs:
           SITE_URL: https://dcartdevelopment.com/${{ env.DEPLOY_SUBFOLDER }}
         run: npm run build
 
+      - name: Normalise FTP host
+        id: ftp
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          host="${FTP_SERVER#ftp://}"
+          host="${host#ftps://}"
+          echo "::add-mask::$host"
+          echo "host=${host%%/*}" >> "$GITHUB_OUTPUT"
+
       - name: Upload dist/ to Hostinger over FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ${{ steps.ftp.outputs.host }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
